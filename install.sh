@@ -22,7 +22,7 @@ git clone https://github.com/janiosarmento/WordOps
 
 echo "Patching WO"
 # TODO: Confirm the destination directory (might be a different Python path)
-rsync -a --include="*.py" --exclude="*" \
+rsync -a --include="*.py" \
     "${tempDir}/WordOps/wo/" /opt/wo/lib/python3.8/site-packages/wo/
 
 echo "Copying new nginx config files"
