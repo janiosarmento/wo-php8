@@ -13,6 +13,10 @@ GitHub so that anyone can inspect it before deciding to run it.
 
 ## Installation
 
+**Make backups of your server before trying this script. It may ruin your server
+and I can't help you to recover, neither can I take any responsibility for any
+unexpected results. Be responsible!**
+
 You should be root to run this script.
 
 ```bash
