@@ -42,5 +42,14 @@ rsync -a "${nginxDir}/conf.d/" /etc/nginx/conf.d/
 
 rm -rf "${tempDir}"
 
+echo ''
+echo 'Reconfiguring PHP-CLI back to 7.4 to avoid error when installing WP'
+
+update-alternatives --set php /usr/bin/php7.4
+update-alternatives --set phar /usr/bin/phar7.4
+update-alternatives --set phar.phar /usr/bin/phar.phar7.4
+update-alternatives --set phpize /usr/bin/phpize7.4
+update-alternatives --set php-config /usr/bin/php-config7.4
+
 echo ""
 echo "Done!"
