@@ -5,6 +5,16 @@ theDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 declare -r nginxDir="${theDir}/nginx"
 declare tempDir
 tempDir="$(mktemp -d -p "${theDir}")"
+declare pythonVersion
+pythonVersion="$(
+    python3 --version |
+    awk '{print $2}' |
+    awk -F. '{print $1"."$2}'
+    )"
+
+echo ''
+echo "Detected Python version: ${pythonVersion}"
+echo ''
 
 if [ ! -d "${nginxDir}" ]; then
     echo "Nginx directory not found, verify your download."
@@ -21,9 +31,9 @@ cd "${tempDir}" || exit 1
 git clone https://github.com/janiosarmento/WordOps
 
 echo "Patching WO"
-# TODO: Confirm the destination directory (might be a different Python path)
+
 rsync -a --include="*.py" \
-    "${tempDir}/WordOps/wo/" /opt/wo/lib/python3.8/site-packages/wo/
+    "${tempDir}/WordOps/wo/" "/opt/wo/lib/python${pythonVersion}/site-packages/wo/"
 
 echo "Copying new nginx config files"
 
