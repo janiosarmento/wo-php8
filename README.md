@@ -40,6 +40,16 @@ cd /home
 rm -rf wo-php8
 ```
 
+## Test the patch
+
+```Terminal
+# wo --version
+WordOps v3.13.3-fork
+Copyright (c) 2020 WordOps.
+```
+
+Notice the "fork" tag beside the version number.
+
 ## Install PHP 8
 
 ```bash
